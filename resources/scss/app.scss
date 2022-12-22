@@ -1,1 +1,27 @@
-@import '~bootstrap/scss/bootstrap'
+@import '~bootstrap/scss/bootstrap';
+
+
+
+
+
+#createForm{
+    height: 100vh;
+    background-color: black;
+
+    .edit-title{
+        color: palevioletred;
+    }
+
+    &.edit{
+        background-color: orange;
+    }
+
+    label{
+        margin-top: 12px;
+        margin-bottom: 5px;
+    }
+}
+.my_footer{
+    background-image:url('https://i.etsystatic.com/37695838/r/il/48e908/4333093796/il_794xN.4333093796_p4sr.jpg') ;
+    height: 300px;
+}
