@@ -18,6 +18,7 @@ return new class extends Migration {
             $table->string('surname');
             $table->string('imgGift');
             $table->string('nameGift');
+            $table->text('description');
             $table->boolean('kidGood');
             $table->timestamps();
         });

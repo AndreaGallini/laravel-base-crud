@@ -25,6 +25,7 @@ class GiftsTableSeeder extends Seeder
             $newGift->surname = $newgift['surname'];
             $newGift->imgGift = $newgift['imgGift'];
             $newGift->nameGift = $newgift['nameGift'];
+            $newGift->description = $newgift['description'];
             $newGift->kidGood = $faker->boolean();
             $newGift->save();
         }
