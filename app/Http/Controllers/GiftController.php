@@ -128,7 +128,7 @@ class GiftController extends Controller
 
         $gift->delete();
         return redirect()->route('gift.index') ;
-        ;
+        
     }
     private function validation($data)
     {
