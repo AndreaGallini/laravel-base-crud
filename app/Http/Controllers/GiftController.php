@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Gift;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -15,24 +16,29 @@ class GiftController extends Controller
      */
     public function index(Request $request)
     {
-        // if (!empty($request->query('search'))) {
-        //     $kidGood = $request->query('search');
-        //     //dd($type);
-        //     $gifts = Gift::where('kidGood', $kidGood)->get();
 
-        // } else {
-        //     $gifts = Gift::all();
-        // }
-        if ($request->query('search') == 'buoni') {
-            $gifts = Gift::where('kidGood', 1)->get();
-        } elseif ($request->query('search') == 'cattivi') {
-            $gifts = Gift::where('kidGood', 0)->get();
-        } else {
+        if ($request->psw == 'XxBabboNatalexX') {
+
             $gifts = Gift::all();
+            $user = User::all();
+            if ($request->query('search') == 'buoni' && $request->query('psw') == 'XxBabboNatalexX') {
+                $gifts = Gift::where('kidGood', 1)->get();
+            } elseif ($request->query('search') == 'cattivi' && $request->psw == 'XxBabboNatalexX') {
+                $gifts = Gift::where('kidGood', 0)->get();
+            } elseif ($request->psw == 'XxBabboNatalexX') {
+                $gifts = Gift::all();
+            }
+
+
+        } else {
+            return view('home');
         }
 
+
+        $santaPsw = $request->psw;
+        // Session::put('psw', $santaPsw);
         // $gifts = Gift::all();
-        return view('gift.index', compact('gifts'));
+        return view('gift.index', compact('gifts'), compact('user'))->with('psw', "XxBabboNatalexX");
 
     }
 
@@ -55,35 +61,9 @@ class GiftController extends Controller
      */
     public function store(Request $request)
     {
-        // VALIDAZIONE SENZA VALIDATOR
-        // $request->validate([
-        //     'name' => 'required|max:15',
-        //     'surname' => 'required|max:20',
-        //     'imgGift' => 'required',
-        //     'nameGift' =>'required'
-        // ]);
-        // $form_data = $request->all();
 
-        //VALIDAZIONE CON VALIDATOR
         $form_data = $this->validation($request->all());
 
-
-        //$newgift = new Gift();
-
-        //alternativa con fill e fillable
-        //$newproduct->fill($form_data);
-
-        //alternativa senza fillable
-        // $newproduct->title = $form_data['title'];
-        // $newproduct->description = $form_data['description'];
-        // $newproduct->type = $form_data['type'];
-        // $newproduct->image = $form_data['image'];
-        // $newproduct->cooking_time = $form_data['cooking_time'];
-        // $newproduct->weight = $form_data['weight'];
-
-        //$newproduct->save();
-        // dd($form_data);
-        //qui sempre con fillable sul model creo l'oggetto, lo popolo e lo salvo sul db
         $newGift = Gift::create($form_data);
 
         return redirect()->route('gift.show', $newGift->id);
@@ -123,11 +103,12 @@ class GiftController extends Controller
         //
         $gift = Gift::find($id);
 
-        $form_data = $request->all();
+        $form_data = $this->validation($request->all());
 
         $gift->name = $form_data['name'];
         $gift->surname = $form_data['surname'];
         $gift->imgGift = $form_data['imgGift'];
+        $gift->description = $form_data['description'];
         $gift->nameGift = $form_data['nameGift'];
         $gift->kidGood = $form_data['kidGood'];
 
@@ -142,31 +123,32 @@ class GiftController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Gift $gift)
+    public function destroy(Gift $gift, Request $request)
     {
-        //
+
         $gift->delete();
-        return redirect()->route('gift.index')->with('message', "Il tuo prodottocon id:  {$gift->id}  è stato  cancellato con successo !");;
+        return redirect()->route('gift.index') ;
+        ;
     }
     private function validation($data)
     {
         $validator = Validator::make($data, [
-            'name' => 'required|min:5|max:50',
+            'name' => 'required|min:3|max:50',
             'surname' => 'required|max:20',
             'imgGift' => 'required',
             'nameGift' => 'required|max:20',
             'description' => 'required|max:20',
-            'kidGood' =>'required'
+            'kidGood' => 'required'
         ], [
-            'name.required' => 'Il nome è obbligatorio.',
-            'name.min' => 'Il nome deve essere lungo almeno :min caratteri.',
-            'name.max' => 'Il nome non può superare i :max caratteri.',
-            'surname.required' => 'Il cognome è obbligatorio.',
-            'surname.max' => 'Il cognome non può superare i :max caratteri.',
-            'imgGift.required' => 'Immagine obbligatoria',
-            'description'=> 'Metti la descrizione perfavore, sto male',
-            'kidGood' =>'seleziona un obbligatorio',
-        ])->validate();
+                'name.required' => 'Il nome è obbligatorio.',
+                'name.min' => 'Il nome deve essere lungo almeno :min caratteri.',
+                'name.max' => 'Il nome non può superare i :max caratteri.',
+                'surname.required' => 'Il cognome è obbligatorio.',
+                'surname.max' => 'Il cognome non può superare i :max caratteri.',
+                'imgGift.required' => 'Immagine obbligatoria',
+                'description' => 'Metti la descrizione perfavore, sto male',
+                'kidGood' => 'seleziona un obbligatorio',
+            ])->validate();
 
         return $validator;
     }

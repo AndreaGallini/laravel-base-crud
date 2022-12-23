@@ -28,6 +28,8 @@
                 <form action="{{ route('gift.destroy', $gift->id) }}" method="POST">
                     @csrf
                     @method('DELETE')
+                    
+                      <input type="hidden" value="XxBabboNatalexX" name="psw">
 
                 <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     Cancella
@@ -45,7 +47,7 @@
                         </div>
                         <div class="modal-footer">
                         <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Annulla</button>
-  
+
                         <button type="submit" class="  btn btn-danger">Cancella</button>
                         </div>
                     </div>

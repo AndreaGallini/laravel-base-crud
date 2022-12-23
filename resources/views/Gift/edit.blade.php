@@ -4,7 +4,7 @@
     <section id="createForm" class="d-flex edit flex-column justify-content-center align-items-center">
         <h1 class="text-center">You are Editing: <span class="edit-title">{{ $gift->name }} {{ $gift->surname }}'s gift</span></h1>
         <form action="{{ route('gift.update', $gift->id) }}" method="POST"
-            class="d-flex flex-column justify-content-around align-items-center text-white">
+            class="d-flex flex-column justify-content-around align-items-center text-black">
             @csrf
             @method('PUT')
 
@@ -27,7 +27,7 @@
             </div>
 
             <div class="form-field d-flex flex-column align-items-center">
-                <label for="imgGift">imageURL</label>
+                <label for="imgGift">ImageURL</label>
                 <input type="text" name="imgGift" id="imgGift" value="{{ old('imgGift', $gift->imgGift) }}" class="@error('imgGift') is-invalid @enderror">
                 @error('imgGift')
                     <div class="invalid-feedback">{{ $message }}</div>
@@ -40,14 +40,14 @@
                 <input type="description" name="description" id="description" value="{{ old('description',$gift->description) }}">
             </div>
 
-            <div class="form-field d-flex flex-column align-items-center">
-                <label for="nameGift">name Gift</label>
+            <div class="form-field d-flex flex-column align-items-center text-black">
+                <label for="nameGift">Name Gift</label>
                 <input type="text" name="nameGift" id="nameGift" value="{{ old('nameGift', $gift->nameGift) }}">
             </div>
 
             <select name="kidGood" id="kidGood" class="mt-3" class="form-field d-flex flex-column align-items-center">
-                <option value="1" {{old('isGood', $gift->isGood == '1' ? 'selected' : '')}}>Buono</option>
-                <option value="0" {{old('isGood', $gift->isGood == '0' ? 'selected' : '')}}>Cattivo</option>
+                <option value="1">&#128519;</option>
+                <option value="0">&#128520;</option>
             </select>
 
             <input type="submit" value="Invia" class="btn btn-primary mt-3">

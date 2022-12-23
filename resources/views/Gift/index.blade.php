@@ -14,7 +14,7 @@
             <div class="row g-2">
                 @foreach ($gifts as $gift)
                     <div class="col-lg-3 col-md-4 col-sm-6 my_col">
-                        <div class="card h-100" style="">
+                        <div class="card h-100 shadow-lg" style="">
                             @if ($gift->kidGood == 1)
                                 <div class="overflow-hidden immg">
                                     <img src="{{ $gift->imgGift }}" class="card-img-top" alt="...">

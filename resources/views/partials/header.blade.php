@@ -10,9 +10,11 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link active" aria-current="page" href="{{ route('gift.index') }}">Gift Index</a>
-                    <a class="nav-link" href="{{ route('gift.create') }}">Gift Create</a>
-                </div>
+                    <form action="{{ route('gift.index') }}" method="GET">
+                        <button class="bg-light btn-gift" type="submit">Gift Index</button>
+                        <input type="hidden" value="XxBabboNatalexX" name="psw">
+                    </form>
+                    <button class="ms-2 bg-light "><a class="text-decoration-none text-black" href="{{ route('gift.create') }}">Gift Create</a></button>
                 <div class="text-black ">
                     <form action="{{route('gift.index')}}" method="GET">
 
@@ -21,9 +23,12 @@
                         <option value="tutti">Tutti</option>
                         <option value="buoni">Buoni</option>
                         <option value="cattivi">Cattivi</option>
+
                     </select>
+                     <input type="hidden" value="XxBabboNatalexX" name="psw">
                         <button type="submit" class="btn btn-danger ms-2 rounded-3">Cerca</button>
                     </form>
+
                 </div>
             </div>
         </div>

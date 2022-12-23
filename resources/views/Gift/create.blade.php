@@ -63,8 +63,6 @@
                     class="form-field d-flex flex-column align-items-center @error('kidGood') is-invalid @enderror">
                     <option value="1">&#128519;</option>
                     <option value="0">&#128520;<i class="fa-solid fa-layer-group"></i></option>
-
-                    <!-- https://as1.ftcdn.net/v2/jpg/05/27/71/54/1000_F_527715481_eSVRhBbAzkq4UzO27FpYEV48GEDajaLc.webp -->
                 </select>
                 @error('kidGood')
                     <div class="invalid-feedback">{{ $message }}</div>
