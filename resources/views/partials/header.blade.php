@@ -11,10 +11,10 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <form action="{{ route('gift.index') }}" method="GET">
-                        <button class="bg-light btn-gift" type="submit">Gift Index</button>
+                        <button class="bg-light btn-gift text-btn" type="submit">Gifts List</button>
                         <input type="hidden" value="XxBabboNatalexX" name="psw">
                     </form>
-                    <button class="ms-2 bg-light "><a class="text-decoration-none text-black" href="{{ route('gift.create') }}">Gift Create</a></button>
+                    <button class="ms-2 bg-light text-btn"><a class="text-decoration-none text-btn" href="{{ route('gift.create') }}">New Gift <i class="fa-solid fa-plus"></i></a></button>
                 <div class="text-black ">
                     <form action="{{route('gift.index')}}" method="GET">
 

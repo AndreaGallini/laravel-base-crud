@@ -103,7 +103,8 @@ class GiftController extends Controller
         //
         $gift = Gift::find($id);
 
-        $form_data = $this->validation($request->all());
+        // $form_data = $this->validation($request->all());
+        $form_data = $request->all();
 
         $gift->name = $form_data['name'];
         $gift->surname = $form_data['surname'];
@@ -125,10 +126,11 @@ class GiftController extends Controller
      */
     public function destroy(Gift $gift, Request $request)
     {
+        $form_data = $request->psw;
 
         $gift->delete();
-        return redirect()->route('gift.index') ;
-        
+        return redirect()->route('gift.index', ['psw' => $form_data]);
+
     }
     private function validation($data)
     {
@@ -137,7 +139,7 @@ class GiftController extends Controller
             'surname' => 'required|max:20',
             'imgGift' => 'required',
             'nameGift' => 'required|max:20',
-            'description' => 'required|max:20',
+            'description' => 'required',
             'kidGood' => 'required'
         ], [
                 'name.required' => 'Il nome è obbligatorio.',

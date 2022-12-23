@@ -46,8 +46,8 @@
             </div>
 
             <select name="kidGood" id="kidGood" class="mt-3" class="form-field d-flex flex-column align-items-center">
-                <option value="1">&#128519;</option>
-                <option value="0">&#128520;</option>
+                <option value="1" {{old('kidGood', $gift->kidGood == '1' ? 'selected' : '')}}>&#128519;</option>
+                <option value="0" {{old('kidGood', $gift->kidGood == '0' ? 'selected' : '')}}>&#128520;</option>
             </select>
 
             <input type="submit" value="Invia" class="btn btn-primary mt-3">

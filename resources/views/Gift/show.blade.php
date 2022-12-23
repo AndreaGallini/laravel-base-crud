@@ -29,7 +29,7 @@
                     @csrf
                     @method('DELETE')
                     
-                      <input type="hidden" value="XxBabboNatalexX" name="psw">
+                      <input type="hidden" value="XxBabboNatalexX" name="psw" id="psw">
 
                 <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     Cancella
