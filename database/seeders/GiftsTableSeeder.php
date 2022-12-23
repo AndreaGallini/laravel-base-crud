@@ -17,16 +17,18 @@ class GiftsTableSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        for ($i = 0; $i < 10; $i++) {
+
+        $gifts = config('array_gift');
+        foreach ($gifts as $newgift) {
             $newGift = new Gift();
-            $newGift->name = $faker->name();
-            $newGift->surname = $faker->lastName();
-            $newGift->imgGift = $faker->imageUrl(640, 480, 'animals', true);
-            $newGift->nameGift = $faker->name();
+            $newGift->name = $newgift['name'];
+            $newGift->surname = $newgift['surname'];
+            $newGift->imgGift = $newgift['imgGift'];
+            $newGift->nameGift = $newgift['nameGift'];
+            $newGift->description = $newgift['description'];
             $newGift->kidGood = $faker->boolean();
             $newGift->save();
         }
-
 
 
     }
