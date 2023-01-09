@@ -1,103 +1,97 @@
-@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap/scss/bootstrap";
 
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
-$fa-font-path: '../webfonts';
-@import '@fortawesome/fontawesome-free/scss/fontawesome.scss';
-@import '@fortawesome/fontawesome-free/scss/solid.scss';
-
-
-
+@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap");
+$fa-font-path: "../webfonts";
+@import "@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "@fortawesome/fontawesome-free/scss/solid.scss";
 
 //sezione create + edit
-#createForm{
+#createForm {
     height: 100vh;
-    background-image: url('https://img.freepik.com/premium-photo/flat-lay-christmas-composition-square-paper-blank-pine-tree-branches-christmas-decorations-colored-background-top-view-copy-space-text_79075-22980.jpg?w=2000');
+    background-image: url("https://img.freepik.com/premium-photo/flat-lay-christmas-composition-square-paper-blank-pine-tree-branches-christmas-decorations-colored-background-top-view-copy-space-text_79075-22980.jpg?w=2000");
     background-size: cover;
     background-position: center;
     background-color: black;
-select {
+    select {
         font: 20px Verdana, Arial, Helvetica, sans-serif;
-    background-color: transparent;
+        background-color: transparent;
         color: #000000;
         margin: 1rem 0;
-    border-radius: 20px;
-   padding: 0.3rem 1rem;
+        border-radius: 20px;
+        padding: 0.3rem 1rem;
         border: 3px solid red;
         outline: none;
+    }
 
-}
+    input {
+        border: 3px solid red;
+        border-radius: 0.4rem;
+        height: 40px;
+        width: 15vw;
+        margin-bottom: 5px;
+        background-color: rgba(255, 255, 255, 0);
+        padding: 0 0.6rem;
+        outline: none;
+    }
+    .btn {
+        background-color: rgb(197, 54, 54);
+        text-transform: uppercase;
+        font-weight: 600;
+    }
 
-
-input{
-border: 3px solid red;
-border-radius: .4rem;
-height: 40px;
-width: 15vw;
-margin-bottom: 5px;
-background-color: rgba(255, 255, 255, 0);
-padding: 0 .6rem;
-outline: none;
-
-}
-.btn{
-    background-color: rgb(197, 54, 54);
-    text-transform: uppercase;
-    font-weight: 600;
-}
-
-    .form-field{
+    .form-field {
         animation: slideInFromRight 1s ease-out 0s 1;
     }
 
     @keyframes slideInFromRight {
-    0% {
-        transform: translateX(100%);
-        opacity: 0;
-    }
-    100% {
-        transform: translateX(0);
-        opacity: 1;
-    }
+        0% {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+        100% {
+            transform: translateX(0);
+            opacity: 1;
+        }
     }
 
-    .edit-title{
+    .edit-title {
         color: palevioletred;
     }
 
-    &.edit{
+    &.edit {
         background-color: orange;
     }
 
-    label{
+    label {
         margin-top: 12px;
         margin-bottom: 5px;
     }
 }
 
 //footer
-.my_footer{
-    background-image:url('https://i.etsystatic.com/37695838/r/il/48e908/4333093796/il_794xN.4333093796_p4sr.jpg') ;
+.my_footer {
+    background-image: url("https://i.etsystatic.com/37695838/r/il/48e908/4333093796/il_794xN.4333093796_p4sr.jpg");
     background-size: contain;
     text-align: center;
     height: 160px;
     clip-path: polygon(0 0, 100% 0, 100% 85%, 0 85%);
 
-    > *{
+    > * {
         transform: translate(0, 20px);
     }
-
 }
 
-.image-footer{
+.image-footer {
     width: 100px;
 }
 
-.created_by{
+.created_by {
     color: red;
-    font-family: 'Great Vibes', cursive;
+    font-family: "Great Vibes", cursive;
 }
 
 //header
+//test
 header {
     position: sticky;
     top: 0;
@@ -107,40 +101,38 @@ header {
     img {
         width: 50px;
     }
-    button{
+    button {
         border: 0px;
     }
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
 }
 
-.my-label{
+.my-label {
     font-size: 16px;
     font-weight: 500;
 }
 
-.btn-gift{
+.btn-gift {
     margin-top: 6px;
 }
-.text-btn{
+.text-btn {
     font-size: 18px;
     font-weight: 600;
-    color: #BB2D3B;
-    text-shadow: 0px 0px 3px #BB2D3B;
+    color: #bb2d3b;
+    text-shadow: 0px 0px 3px #bb2d3b;
     transition: all 250ms;
-    &:hover{
+    &:hover {
         color: rgb(255, 0, 0);
         text-shadow: 0px 0px 3px #330c10;
         transform: scale(1.1);
     }
-    ;
 }
 
 //cards
 
-.my_col{
+.my_col {
     margin-bottom: 1rem;
-    .card{
-
+    .card {
         transform: perspective(1500px) rotateY(15deg);
         border-radius: 1rem;
         box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
@@ -148,138 +140,134 @@ header {
 
         &:hover {
             transform: perspective(3000px) rotateY(5deg);
-          }
-
-
-    .immg{
-        width: 100%;
-        overflow: hidden;
-        padding: 1rem;
-        display: flex;
-        justify-content: center;
-        img{
-            height: 300px;
-            padding: 1rem;
         }
-    }
-            border-radius: 1.5rem;
-            transition: all 250ms;
-            &:hover{
-                    transform: scale(1.1);
-                    z-index: 500;
-                    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
-                    cursor: pointer;
-                }
-                .kid_name {
-                    font-family: 'Great Vibes', cursive;
-                    font-size: 2rem;
 
-                }
+        .immg {
+            width: 100%;
+            overflow: hidden;
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            img {
+                height: 300px;
+                padding: 1rem;
+            }
+        }
+        border-radius: 1.5rem;
+        transition: all 250ms;
+        &:hover {
+            transform: scale(1.1);
+            z-index: 500;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+        }
+        .kid_name {
+            font-family: "Great Vibes", cursive;
+            font-size: 2rem;
+        }
 
-                .name_gift {
-                    font-family: 'Great Vibes', cursive;
-                    font-size: 1.5rem;
+        .name_gift {
+            font-family: "Great Vibes", cursive;
+            font-size: 1.5rem;
+        }
 
-                }
-
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-                img{
-                    width: 90%;
-                    overflow-y: hidden;
-                    object-fit: contain;
-                }
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        img {
+            width: 90%;
+            overflow-y: hidden;
+            object-fit: contain;
+        }
     }
 }
 
-.card img{
+.card img {
     height: 450px;
     min-width: 326px;
     object-fit: contain;
 }
 // classe show
 
-.my_card{
+.my_card {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: calc(100vh - 290px);
-    .left{
+    .left {
         width: 50%;
         padding: 3rem;
         display: flex;
         align-items: center;
         justify-content: center;
-        img{
+        img {
             width: 100%;
             height: 450px;
             object-fit: contain;
         }
     }
-    .right{
+    .right {
         width: 50%;
         display: flex;
         padding: 3rem;
         flex-direction: column;
         gap: 1.5rem;
-        h1{
+        h1 {
             font-size: 2.5rem;
-                font-family: 'Great Vibes', cursive;
-            text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.500);
+            font-family: "Great Vibes", cursive;
+            text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
         }
-        p{
+        p {
             font-size: 2rem;
-                font-family: 'Great Vibes', cursive;
+            font-family: "Great Vibes", cursive;
             font-style: italic;
         }
-        .butto{
+        .butto {
             display: flex;
             gap: 1rem;
-            .btn-primary{
+            .btn-primary {
                 background-color: rgb(96, 196, 76);
                 border: 1px solid rgb(85, 172, 68);
-                &:hover{
+                &:hover {
                     background-color: rgb(70, 143, 56);
                 }
             }
-            .btn{
+            .btn {
                 text-decoration: none;
-                padding: .5rem 2rem;
+                padding: 0.5rem 2rem;
                 border-radius: 1.3rem;
                 transition: all 250ms;
                 text-transform: uppercase;
-            &:hover{
-                transform: scale(1.1);
-                a{
-                    color: white;
+                &:hover {
+                    transform: scale(1.1);
+                    a {
+                        color: white;
+                    }
                 }
-            }
             }
         }
     }
 }
 
-button{
-    a{
+button {
+    a {
         text-decoration: none;
         color: white;
     }
 }
-.img_bg{
-    background-image: url('https://images.pexels.com/photos/1303088/pexels-photo-1303088.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+.img_bg {
+    background-image: url("https://images.pexels.com/photos/1303088/pexels-photo-1303088.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
     background-attachment: fixed;
     width: 100%;
     background-repeat: no-repeat;
     background-size: cover;
 }
-.kid_name_show{
-font-family: 'Great Vibes', cursive;
-font-size: 50px;
+.kid_name_show {
+    font-family: "Great Vibes", cursive;
+    font-size: 50px;
 }
 .kid_nameGift_show {
-    font-family: 'Great Vibes', cursive;
+    font-family: "Great Vibes", cursive;
     font-size: 4rem;
-    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.500);
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
 }
-
