@@ -12,7 +12,9 @@
 
         </div>
         <div class="right">
-
+            <h1>
+                Ciao
+            </h1>
             <h1 class="kid_name_show">{{ $gift->name }} {{ $gift->surname }}</h1>
             @if ($gift->kidGood == 1)
                 <h2 class="kid_nameGift_show">{{ $gift->nameGift }}</h2>
