@@ -15,6 +15,9 @@
                         <input type="hidden" value="XxBabboNatalexX" name="psw">
                     </form>
                     <button class="ms-2 bg-light text-btn"><a class="text-decoration-none text-btn" href="{{ route('gift.create') }}">New Gift <i class="fa-solid fa-plus"></i></a></button>
+
+                    <button class="ms-2 bg-light text-btn"><a class="text-decoration-none text-btn" href="{{ route('gift.create') }}">Happy New Year<i class="fa-solid fa-plus"></i></a></button>
+                    
                 <div class="text-black ">
                     <form action="{{route('gift.index')}}" method="GET">
 
